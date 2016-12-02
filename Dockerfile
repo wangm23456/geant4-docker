@@ -10,7 +10,6 @@ RUN apt-get update; \
     libftgl-dev  libmysqlclient-dev libfftw3-dev graphviz-dev \
     libavahi-compat-libdnssd-dev  libldap2-dev python-dev \
     libxml2-dev libkrb5-dev libgsl0-dev libqt4-dev;
-    apt-get autoremove; apt-get clean
 
 RUN mkdir ~/Geant4/; \
     mkdir ~/Geant4/{build,install}/; \
@@ -22,6 +21,6 @@ RUN mkdir ~/Geant4/; \
         -DGEANT4_USE_OPENGL_X11=ON -DGEANT4_USE_RAYTRACE_X11=ON \
         -DGEANT4_BUILD_MULTITHREADED=ON \
         -DGEANT4_INSTALL_DATA=ON ~/Geant4/geant4.10.01.p03; \
-    && make -j30; \
-    && make install; \
-    && echo "source ~/Geant4/install/share/Geant4-10.1.3/geant4make/geant4make.sh" > ~/.bashrc;
+    make -j30; \
+    make install; \
+    echo "source ~/Geant4/install/share/Geant4-10.1.3/geant4make/geant4make.sh" > ~/.bashrc
