@@ -12,7 +12,7 @@ RUN apt-get update; \
     libxml2-dev libkrb5-dev libgsl0-dev libqt4-dev;
 
 RUN mkdir ~/Geant4/; \
-    mkdir ~/Geant4/{build,install}/; \
+    mkdir ~/Geant4/{build,install}; \
     cd ~/Geant4/; \
     curl -O http://geant4.web.cern.ch/geant4/support/source/geant4.10.01.p03.tar.gz; \
     tar -xzf geant4.10.01.p03.tar.gz;
