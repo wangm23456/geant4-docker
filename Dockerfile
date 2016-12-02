@@ -16,7 +16,8 @@ RUN mkdir ~/Geant4/; \
     cd ~/Geant4/; \
     curl -O http://geant4.web.cern.ch/geant4/support/source/geant4.10.01.p03.tar.gz; \
     tar -xzf geant4.10.01.p03.tar.gz;
-    cd ~/Geant4/build/; \
+
+RUN cd ~/Geant4/build/; \
     cmake -DCMAKE_INSTALL_PREFIX=~/Geant4/install \
         -DGEANT4_USE_OPENGL_X11=ON -DGEANT4_USE_RAYTRACE_X11=ON \
         -DGEANT4_BUILD_MULTITHREADED=ON \
