@@ -10,14 +10,15 @@ RUN apt-get update; \
     libftgl-dev  libmysqlclient-dev libfftw3-dev graphviz-dev \
     libavahi-compat-libdnssd-dev  libldap2-dev python-dev \
     libxml2-dev libkrb5-dev libgsl0-dev libqt4-dev;
-
-RUN mkdir ~/Geant4/; \
-    mkdir ~/Geant4/{build,install}; \
-    cd ~/Geant4/; \
+WORKDIR /root/
+RUN mkdir ./Geant4/; \
+    mkdir ./Geant4/{build,install}; \
+    cd ./Geant4/; \
     curl -O http://geant4.web.cern.ch/geant4/support/source/geant4.10.01.p03.tar.gz; \
     tar -xzf geant4.10.01.p03.tar.gz;
 
-RUN cd ~/Geant4/build/; \
+WORKDIR /root/Geant4/
+RUN cd ./build/; \
     cmake -DCMAKE_INSTALL_PREFIX=~/Geant4/install \
         -DGEANT4_USE_OPENGL_X11=ON -DGEANT4_USE_RAYTRACE_X11=ON \
         -DGEANT4_BUILD_MULTITHREADED=ON \
