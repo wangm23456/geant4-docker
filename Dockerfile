@@ -19,14 +19,14 @@ RUN apt-get update \
 RUN mkdir ~/Geant4 \
     && mkdir ~/Geant4/{build,install} \
     && cd ~/Geant4 \
-    && curl -O geant4-10-1-3.tar.gz http://geant4.web.cern.ch/geant4/support/source/geant4.10.01.p03.tar.gz \
-    && tar -xzf geant4-10-1-3.tar.gz -C ./src
+    && curl http://geant4.web.cern.ch/geant4/support/source/geant4.10.01.p03.tar.gz \
+    && tar -xzf geant4.10.01.p03.tar.gz
 
 RUN cd ~/Geant4/build \
     && cmake -DCMAKE_INSTALL_PREFIX=~/Geant4/install \
         -DGEANT4_USE_OPENGL_X11=ON -DGEANT4_USE_RAYTRACE_X11=ON \
         -DGEANT4_BUILD_MULTITHREADED=ON \
-        -DGEANT4_INSTALL_DATA=ON ~/Geant4/src \
+        -DGEANT4_INSTALL_DATA=ON ~/Geant4/geant4.10.01.p03 \
     && make -j30 \
     && make install \
     && echo "source ~/Geant4/install/share/Geant4-10.1.3/geant4make/geant4make.sh" \
