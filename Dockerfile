@@ -19,8 +19,8 @@ RUN apt-get update \
 RUN mkdir ~/Geant4 \
     && mkdir ~/Geant4/{build,install} \
     && cd ~/Geant4 \
-    && curl http://geant4.web.cern.ch/geant4/support/source/geant4.10.01.p03.tar.gz \
-    && tar -xzf geant4.10.01.p03.tar.gz
+    && curl -O geant4.10.01.p03.tar.gz http://geant4.web.cern.ch/geant4/support/source/geant4.10.01.p03.tar.gz \
+    && tar -xzvf geant4.10.01.p03.tar.gz
 
 RUN cd ~/Geant4/build \
     && cmake -DCMAKE_INSTALL_PREFIX=~/Geant4/install \
