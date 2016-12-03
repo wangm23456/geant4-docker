@@ -24,6 +24,6 @@ RUN cd ./build/; \
         -DGEANT4_BUILD_MULTITHREADED=ON \
 #        -DGEANT4_INSTALL_DATA=ON \
         ~/Geant4/geant4.10.01.p03; \
-    make -j4; \
+    make -j20; \
     make install; \
     echo "source ~/Geant4/install/share/Geant4-10.1.3/geant4make/geant4make.sh" > ~/.bashrc
