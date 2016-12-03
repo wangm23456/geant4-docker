@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:14.04
 MAINTAINER wangm23456 <wangm23456@163.com>
 
 RUN apt-get update; \
