@@ -9,7 +9,7 @@ RUN apt-get update; \
     libssl-dev libpcre3-dev  xlibmesa-glu-dev libglew1.5-dev libxi6\
     libftgl-dev  libmysqlclient-dev libfftw3-dev graphviz-dev \
     libavahi-compat-libdnssd-dev  libldap2-dev python-dev \
-    libxml2-dev libkrb5-dev libgsl0-dev libqt4-dev; \
+    libxml2-dev libkrb5-dev libgsl0-dev libqt4-dev nano vim; \
     apt-get clean
 WORKDIR /root/
 RUN mkdir ./Geant4/; \
