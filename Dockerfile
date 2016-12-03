@@ -9,10 +9,12 @@ RUN apt-get update; \
     libssl-dev libpcre3-dev  xlibmesa-glu-dev libglew1.5-dev libxi6\
     libftgl-dev  libmysqlclient-dev libfftw3-dev graphviz-dev \
     libavahi-compat-libdnssd-dev  libldap2-dev python-dev \
-    libxml2-dev libkrb5-dev libgsl0-dev libqt4-dev;
+    libxml2-dev libkrb5-dev libgsl0-dev libqt4-dev; \
+    apt-get clean
 WORKDIR /root/
 RUN mkdir ./Geant4/; \
-    mkdir ./Geant4/{build,install}; \
+    mkdir ./Geant4/build/; \
+    mkdir ./Geant4/install/; \
     cd ./Geant4/; \
     curl -O http://geant4.web.cern.ch/geant4/support/source/geant4.10.01.p03.tar.gz; \
     tar -xzf geant4.10.01.p03.tar.gz;
@@ -27,3 +29,8 @@ RUN cd ./build/; \
     make -j20; \
     make install; \
     echo "source ~/Geant4/install/share/Geant4-10.1.3/geant4make/geant4make.sh" > ~/.bashrc
+
+WORKDIR /root/Geant4/
+RUN rm -r ./build; \
+    rm -r ./geant4.10.01.p03; \
+    rm geant4.10.01.p03.tar.gz
