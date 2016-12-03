@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER wangm23456 <wangm23456@163.com>
 
 RUN apt-get update; \
@@ -17,12 +17,12 @@ RUN mkdir ./Geant4/; \
     mkdir ./Geant4/install/; \
     cd ./Geant4/; \
     curl -O http://geant4.web.cern.ch/geant4/support/source/geant4.10.01.p03.tar.gz; \
-    tar -xzf geant4.10.01.p03.tar.gz;
+    tar -xzf geant4.10.01.p03.tar.gz
 
 WORKDIR /root/Geant4/
 RUN cd ./build/; \
     cmake -DCMAKE_INSTALL_PREFIX=~/Geant4/install \
-        -DGEANT4_USE_OPENGL_X11=ON -DGEANT4_USE_RAYTRACE_X11=ON \
+#        -DGEANT4_USE_OPENGL_X11=ON -DGEANT4_USE_RAYTRACE_X11=ON DGEANT4_USE_QT=ON\
         -DGEANT4_BUILD_MULTITHREADED=ON \
 #        -DGEANT4_INSTALL_DATA=ON \
         ~/Geant4/geant4.10.01.p03; \
